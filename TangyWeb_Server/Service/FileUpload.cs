@@ -19,7 +19,7 @@ namespace TangyWeb_Server.Service
             }
             return false;
         }
-//ádjalkd new my dđsdấdasdas fdfdfdfdfdf new , update order suprqqweaasweqwe yuyiopeeeeeee
+//ádjalkd new my dđsdấdasdas fdfdfdfdfdf new , update order suprqqweaasweqwe yuyiopeeeeeeeeeeqewqwe
         public async Task<string> UploadFile(IBrowserFile file)
         {
             FileInfo fileInfo = new FileInfo(file.Name);
