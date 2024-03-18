@@ -15,7 +15,7 @@ using Tangy_DataAccess;
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF5cWWJCfExwWmFZfVpgdVdMYlxbQXdPIiBoS35RckViWXhfcnZVQ2JYUkZ3");
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.aaabâsssaaaaass kajaaa
+// Add services to the container.aaabâsssaaaaass kajaaaaaasđaaa
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSyncfusionBlazor();
