@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+ using Microsoft.EntityFrameworkCore;
 using Tangy_Business.Repository.IRepository;
 using Tangy_Business.Repository;
 using Tangy_DataAccess.Data;
@@ -11,6 +11,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Runtime.CompilerServices;
 using Stripe;
+using TangyWeb_API.Service;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -84,12 +86,14 @@ builder.Services.AddScoped<IProductPriceRepository, ProductPriceRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
+//builder.Services.AddScoped<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, EmailSender>();
 builder.Services.AddCors(o => o.AddPolicy("Tangy", builder =>
 {
     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
 }));
-
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.AddTransient<IMailService, MailService>();
+  builder.Services.AddScoped<IEmailSender, EmailSender>();  
 var app = builder.Build();
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe")["ApiKey"];
 // Configure the HTTP request pipeline.
