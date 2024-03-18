@@ -19,7 +19,7 @@ namespace TangyWeb_Server.Service
             }
             return false;
         }
-
+//ádjalkd
         public async Task<string> UploadFile(IBrowserFile file)
         {
             FileInfo fileInfo = new FileInfo(file.Name);
